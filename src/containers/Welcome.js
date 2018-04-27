@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import config from '../config';
 import query from 'query-string';
 
 import { connect } from 'react-redux';
@@ -12,14 +13,14 @@ class Welcome extends Component {
   constructor(props) {
     super(props);
     const code = {code: query.parse(window.location.search).code};
-    fetch('https://listmera.herokuapp.com/api/register', {
+    fetch(`${config.baseServerUrl}/api/register`, {
       method: 'POST',
       body: JSON.stringify(code),
       mode: 'cors',
       header: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Origin': 'http://listmera.rocks',
+        'Origin': config.baseClientUrl,
       },
     }).then(res => res.json())
       .then(res => {

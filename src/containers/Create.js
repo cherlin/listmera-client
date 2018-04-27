@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import config from '../config';
 import '../App.css';
 
 import { connect } from 'react-redux';
@@ -21,14 +22,14 @@ class Create extends Component {
   }
 
   createPlaylist(listName, selectedValues, selectedTempo) {
-    fetch('https://listmera.herokuapp.com/api/playlist', {
+    fetch(`${config.baseServerUrl}/api/playlist`, {
       method: 'POST',
       body: JSON.stringify({username: this.props.user.username, name: listName, values: selectedValues, tempo: selectedTempo}),
       mode: 'cors',
       header: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Origin': 'http://listmera.rocks',
+        'Origin': config.baseClientUrl,
       },
     }).then(res => res.json())
       .then(res => {
