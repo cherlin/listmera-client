@@ -17,7 +17,7 @@ class Welcome extends Component {
       method: 'POST',
       body: JSON.stringify(code),
       mode: 'cors',
-      header: {
+      headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Origin': config.baseClientUrl,

@@ -44,7 +44,7 @@ class Playlist extends Component {
       method: 'PUT',
       body: window.localStorage.getItem('user'),
       mode: 'cors',
-      header: {
+      headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Origin': config.baseClientUrl,
@@ -63,11 +63,8 @@ class Playlist extends Component {
     fetch(`${config.baseServerUrl}/api${window.location.pathname}`, {
       method: 'POST',
       body: window.localStorage.getItem('user'),
-      mode: 'cors',
-      header: {
-        'Accept': 'application/json',
+      headers: {
         'Content-Type': 'application/json',
-        'Origin': config.baseClientUrl,
       },
     }).then(res => window.location = '/generated')
       .catch(e => console.error(e));
@@ -86,7 +83,7 @@ class Playlist extends Component {
       method: 'POST',
       body: JSON.stringify(body),
       mode: 'cors',
-      header: {
+      headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Origin': config.baseClientUrl,
@@ -104,7 +101,7 @@ class Playlist extends Component {
         method: 'DELETE',
         body: JSON.stringify(body),
         mode: 'cors',
-        header: {
+        headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
           'Origin': config.baseClientUrl,

@@ -11,7 +11,7 @@ class Main extends Component {
   constructor(props) {
     super(props);
     fetch(`${config.baseServerUrl}/api/playlists/recent`, {
-      header: {
+      headers: {
         'Origin': config.baseClientUrl,
       }
     })
